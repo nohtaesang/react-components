@@ -1,5 +1,6 @@
 
-# react-components
+# React-components
+## 
 ## list
 |Name|
 |----|
@@ -7,6 +8,8 @@
 |toastify|
 |modal|
 |date-picker|
+
+<hr>
 
 ## react-pagination
 #### Props
@@ -56,6 +59,8 @@ const App = () => {
 };
 export default App;
 ```
+
+<hr>
 
 ## react-toastify
 #### How to use

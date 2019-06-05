@@ -10,7 +10,6 @@
 /* 2. toast */
 .toast {
 	position: fixed;
-	/* top: ${(props)=> 12+ props.index*72 +'px'} */
 	right: 1em;
 	display: flex;
 	flex-direction: column;
@@ -22,7 +21,6 @@
 	transition: 1s;
 	margin-bottom: 1em;
 	background: #222;
-
 	animation-name: appear;
 	animation-duration: 0.5s;
 }
