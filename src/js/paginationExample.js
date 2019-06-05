@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Pagination from './pagination/index';
+import Pagination from './pagination/pagination';
 const App = () => {
 	const [ data, setData ] = useState([]);
 	const [ contentCount ] = useState(10);

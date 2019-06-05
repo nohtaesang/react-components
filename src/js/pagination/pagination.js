@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './index.css';
+import './pagination.css';
+
 const Pagination = (props) => {
 	const { curPage, setCurPage, pageCount, contentLength, contentCount } = props;
-	const [ lastPage, setLastPage ] = useState(1);
+	const [ lastPage, setLastPage ] = useState(Math.ceil(contentLength / contentCount));
 	const [ pageBtns, setPageBtns ] = useState([]);
-	console.log(props);
+
 	useEffect(
 		() => {
 			const nextLastPage = Math.ceil(contentLength / contentCount);
