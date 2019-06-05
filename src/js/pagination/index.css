@@ -1,0 +1,19 @@
+.kirin-pagination {
+	display: flex;
+	flex-direction: row;
+}
+.kirin-pagination div:nth-child(n) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	cursor: pointer;
+}
+
+.kirin-pagination .hidden {
+	visibility: hidden;
+}
+
+.kirin-pagination .cur-page {
+	text-decoration: underline;
+}
