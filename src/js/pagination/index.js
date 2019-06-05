@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 const Pagination = (props) => {
-	const { page, setPage, pageNum, contentLength, contentNum } = props;
+	const { curPage, setCurPage, pageCount, contentLength, contentCount } = props;
 	const [ lastPage, setLastPage ] = useState(1);
 	const [ pageBtns, setPageBtns ] = useState([]);
-
+	console.log(props);
 	useEffect(
 		() => {
-			const nextLastPage = Math.ceil(contentLength / contentNum);
+			const nextLastPage = Math.ceil(contentLength / contentCount);
 			setLastPage(nextLastPage);
 		},
 		[ contentLength ]
@@ -16,28 +16,28 @@ const Pagination = (props) => {
 	useEffect(
 		() => {
 			const nextPageBtns = [];
-			for (let i = 0; i < pageNum; i++) {
-				nextPageBtns.push(i - parseInt(pageNum / 2) + page);
+			for (let i = 0; i < pageCount; i++) {
+				nextPageBtns.push(i - parseInt(pageCount / 2) + curPage);
 			}
 			setPageBtns(nextPageBtns);
 		},
-		[ page ]
+		[ curPage ]
 	);
 
 	return (
 		<div className="kirin-pagination">
 			<div
-				className={`first`}
+				className={`btn first`}
 				onClick={() => {
-					setPage(1);
+					setCurPage(1);
 				}}
 			>
 				{'<<'}
 			</div>
 			<div
-				className={`prev ${page === 1 ? 'hidden' : ''}`}
+				className={`btn prev ${curPage === 1 ? 'hidden' : ''}`}
 				onClick={() => {
-					setPage(page - 1);
+					setCurPage(curPage - 1);
 				}}
 			>
 				{'<'}
@@ -45,26 +45,28 @@ const Pagination = (props) => {
 			{pageBtns.map((no, i) => (
 				<div
 					key={no}
-					className={`page ${no >= 1 && no <= lastPage ? '' : 'hidden'} ${no === page ? 'cur-page' : ''}`}
+					className={`btn page ${no >= 1 && no <= lastPage ? '' : 'hidden'} ${no === curPage
+						? 'cur-page'
+						: ''}`}
 					onClick={() => {
-						setPage(no);
+						setCurPage(no);
 					}}
 				>
 					{no}
 				</div>
 			))}
 			<div
-				className={`next`}
+				className={`btn next`}
 				onClick={() => {
-					setPage(page + 1);
+					setCurPage(curPage + 1);
 				}}
 			>
 				{'>'}
 			</div>
 			<div
-				className={`last`}
+				className={`btn last`}
 				onClick={() => {
-					setPage(lastPage);
+					setCurPage(lastPage);
 				}}
 			>
 				{'>>'}

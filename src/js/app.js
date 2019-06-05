@@ -3,7 +3,7 @@ import Pagination from './pagination/index';
 const App = () => {
 	const [ data, setData ] = useState([]);
 	const [ contentNum ] = useState(10);
-	const [ page, setPage ] = useState(1);
+	const [ curPage, setCurPage ] = useState(1);
 	useEffect(() => {
 		const dummy = [];
 		for (let i = 0; i < 100; i++) {
@@ -17,8 +17,16 @@ const App = () => {
 
 	return (
 		<div>
-			{data.slice((page - 1) * contentNum, page * contentNum).map((d, i) => <div key={d.id}>{d.value}</div>)}
-			<Pagination page={page} setPage={setPage} pageNum={7} contentLength={data.length} contentNum={contentNum} />
+			{data
+				.slice((curPage - 1) * contentNum, curPage * contentNum)
+				.map((d, i) => <div key={d.id}>{d.value}</div>)}
+			<Pagination
+				curPage={curPage}
+				setCurPage={setCurPage}
+				pageCount={5}
+				contentLength={data.length}
+				contentCount={contentNum}
+			/>
 		</div>
 	);
 };
