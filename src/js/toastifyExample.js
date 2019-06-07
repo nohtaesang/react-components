@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ToastContainer from './toastify/components/toastContainer';
 import eventManager from './toastify/utils/eventManager';
 
-const App = () => {
+const ToastifyExample = () => {
 	const onClickToastSuccess = () => {
 		eventManager.emit('PUSH', 'success', { type: 'success' });
 	};
@@ -19,4 +19,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default ToastifyExample;
